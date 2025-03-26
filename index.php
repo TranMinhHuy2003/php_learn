@@ -7,31 +7,31 @@
 </head>
 <body>
   <form action="index.php" method="post">
-    <label for="">username:</label>
-    <input type="text" name="username" id="">
-    <label for="">password:</label>
-    <input type="password" name="password" id="">
-    <input type="submit" name="login" value="Login"><br>
+    <input type="radio" name="credit_card" value="visa" id="">
+    Visa<br>
+    <input type="radio" name="credit_card" value="mastercard" id="">
+    Mastercard<br>
+    <input type="radio" name="credit_card" value="momo" id="">
+    Momo<br>
+    <input type="submit" name="confirm" value="Confirm">
   </form>
 </body>
 </html>
 <?php
-  //isset(): return TRUE if a variable is declared and not null
-  //empty(): return TRUE if a variable is not declared, false, null, ""
-  
-  foreach($_POST as $key => $value) {
-    echo "{$key} = {$value} <br>";
-  }
-
-  if(isset($_POST["login"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    if(empty($username)) {
-      echo "username is missing";
-    } elseif(empty($password)) {
-      echo "password is missing";
-    } else {
-      echo "Hello {$username}";
+  if(isset($_POST["confirm"]) && isset($_POST["credit_card"])) {
+    $credit_card = $_POST["credit_card"];
+    switch($credit_card) {
+      case "visa":
+        echo "You selected Visa";
+        break;
+      case "mastercard":
+        echo "You selected MasterCard";
+        break;
+      case "momo":
+        echo "You selected Momo";
+        break;
     }
-  } 
+  } else {
+    echo "Please select";
+  }
 ?>
