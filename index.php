@@ -6,16 +6,33 @@
   <title>Document</title>
 </head>
 <body>
+  <form action="index.php" method="post">
+    <label for="">country:</label>
+    <input type="text" name="country" id=""><br>
+    <input type="submit" value="submit">
+  </form>
 </body>
 </html>
 <?php
-  $foods = array("apple", "kiwi", "banana", "orange");
-  //array_push($foods, "cherry");
-  // array_pop($foods);
-  // array_shift($foods);
-  $foods = array_reverse($foods);
-  foreach($foods as $food) {
-    echo $food . "<br>";
+  $capitals = array("USA" => "Washington D.C.",
+                    "Japan" => "Kyoto",
+                    "South Korea" => "Seoul",
+                    "India" => "New Dehli");
+  $countries = array_keys($capitals);
+  $country = $_POST["country"];
+  if (!in_array($country, $countries)) {
+    echo "The country is not available";
+  } else {
+    $capital = $capitals[$country];
+    echo "The capital of {$country} is {$capital}";
   }
-  echo count($foods);
+
+  //$capitals["USA"] = "Los Vegas";
+  // $capitals["China"] = "Beijing";
+  // array_pop($capitals);
+  // array_shift($capitals);
+  // $keys = array_keys($capitals);
+  // $values = array_values($capitals);\
+  // $capitals = array_flip($capitals);
+  // $capitals = array_reverse($capitals);
 ?>
