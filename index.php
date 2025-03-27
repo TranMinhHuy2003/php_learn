@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form action="index.php" method="post">
-    <input type="checkbox" name="foods[]" value="pizza" id="">
-    pizza <br>
-    <input type="checkbox" name="foods[]" value="hotdog" id="">
-    hotdog <br>
-    <input type="checkbox" name="foods[]" value="taco" id="">
-    taco <br>
-    <input type="submit" name="submit" value="submit">
-  </form>
-</body>
-</html>
 <?php
-  if(isset($_POST["submit"])) {
-    $foods = $_POST["foods"];
-    foreach($foods as $food) {
-      echo $food . "<br>";
-    }
-  }
+  $username = "Minh Huy";
+  $phone = "092-8976-3173";
+  // $username = strtolower($username);
+  // $username = strtoupper($username);
+  // $username = trim($username); clear blank
+  // $username = str_pad($username, 20, "0");
+  // $phone = str_replace("-", "", $phone);
+  // $username = strrev($username);
+  // $username = str_shuffle($username);
+  // $equal = strcmp($username, "Huy");
+  // $count = strlen($username);
+  // $index = strpos($phone, "-");
+  // $firstname = substr($username, 0, 4);
+  // $lastname = substr($username, 5);
+
+  //$username_arr = explode(" ", $username); string to array
+  // foreach($username_arr as $name) {
+  //   echo $name . "<br>";
+  // }
+
+  // $username_arr = ["Minh", "Huy"]; array to string
+  // $username = implode(" ", $username_arr);
+
+  echo $username;
 ?>
