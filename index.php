@@ -1,23 +1,19 @@
 <?php
-//include(): Copies the content of a file (php/html/text)
-//and includes it in your php file.
-//Sections of your websites become reusable.
-//Changes only need to be made in one place.
+  // cookie = Information about a user stored in a user's web browser
+  //          targeted advertisements, browsing preferences
+  //          and other non-sensitive data
 
-  include("header.html");
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  This is the Homepage <br>
-  Stuff about your homepage can go here <br>
-</body>
-</html>
-<?php
-  include("footer.html");
+
+  setcookie("fav_food", "pizza", time() + 86400, "/");
+  setcookie("fav_drink", "coffee", time() + 86400*2, "/");
+  setcookie("fav_dessert", "ice cream", time() + 86400*3, "/");
+  foreach($_COOKIE as $key => $value) {
+    echo "{$key} = {$value} <br>";
+  }
+
+  if(isset($_COOKIE["fav_food"])) {
+    echo "Buy some {$_COOKIE["fav_food"]}";
+  } else {
+    echo "I don't know your fav food";
+  }
 ?>
