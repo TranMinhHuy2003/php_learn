@@ -1,11 +1,3 @@
-<?php
-  // session = super global variable used to store information
-  //           on a user to be used across multiple pages.
-  //           A user is assigned a session-id.
-
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,24 +6,21 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="index.php" method="post">
+  <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
     username: <br>
     <input type="text" name="username" id=""> <br>
-    password: <br>
-    <input type="password" name="password" id=""> <br>
-    <input type="submit" value="Login" name="login">
+    <input type="submit" value="Submit">
   </form>
 </body>
 </html>
 <?php
-  if(isset($_POST["login"])) {
-    if(!empty($_POST["username"]) && !empty($_POST["password"])) {
-      $_SESSION["username"] = $_POST["username"];
-      $_SESSION["password"] = $_POST["password"];
+  // server = super global variable that contains headers,
+  //          paths and script locations.
+  //          The entries in this array are created by the web server.
+  //          Shows nearly everything you need about 
+  //          the current web page env.
 
-      header("Location: home.php");
-    } else {
-      echo "Missing username/password";
-    }
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Hello";
   }
 ?>
