@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-    username: <br>
-    <input type="text" name="username" id=""> <br>
-    <input type="submit" value="Submit">
-  </form>
-</body>
-</html>
 <?php
-  // server = super global variable that contains headers,
-  //          paths and script locations.
-  //          The entries in this array are created by the web server.
-  //          Shows nearly everything you need about 
-  //          the current web page env.
+  // hashing = transforming sensitive data into letters,
+  //           numbers, and/or symbols via a mathematical process
+  //           (similar to encryption)
+  //           Hides the original data from 3rd parties.
 
-  if($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "Hello";
-  }
+  $password = "pizza123";
+  $hash = password_hash($password, PASSWORD_DEFAULT);
+
+  echo password_verify($password, $hash);
 ?>
