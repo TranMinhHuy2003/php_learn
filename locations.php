@@ -14,8 +14,8 @@
   <title>Document</title>
 </head>
 <body>
-  This is the Homepage <br>
-  Stuff about your homepage can go here <br>
+  This is the Location page <br>
+  Stuff about your Location page can go here <br>
 </body>
 </html>
 <?php
